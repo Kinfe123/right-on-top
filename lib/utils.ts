@@ -16,12 +16,13 @@ type FrontMatterType = {
 export const cn = (...values: ClassValue[]) => {
   return twMerge(clsx(values));
 };
-
+// all blogs for the base file dir.
 export const allBlogs = async () => {
   const file = await fs.readdir(BASEDIR);
 
   return file;
 };
+//  generating the content based on slug - fetching the markup 
 export const postContent = async (filename: string) => {
   const pathes = path.join(BASEDIR , `${filename}.md`);
 
@@ -31,6 +32,7 @@ export const postContent = async (filename: string) => {
 };
 
 
+// generating the frontmatter 
 export const frontMatter = (fileContent: string) => {
   const startFrontmatter = fileContent.indexOf("---");
   const endFrontmatter = fileContent.slice(startFrontmatter + 3).indexOf("---");
@@ -54,11 +56,13 @@ export const frontMatter = (fileContent: string) => {
 export const mdToHtml = (content: string) => {
 
 }
+// get the sync buffer 
 export const getData =  (slug: string) => {
   const filePath = path.join(BASEDIR, `${slug}.md`);
   const fileContent = readFileSync(filePath);
   return fileContent;
 };
+// generting the content . except the frontmatter 
 export const contentAfterFrontMatter = (fileContent: string) => {
   const startFrontmatter = fileContent.indexOf("---");
   const endFrontmatter = fileContent.slice(startFrontmatter + 3).indexOf("---");
@@ -66,6 +70,8 @@ export const contentAfterFrontMatter = (fileContent: string) => {
   return realContent;
 };
 
+
+// formating date based on the US standard
 export function formatDate(input: undefined | Date): string {
   const date = new Date(input!);
   return date.toLocaleDateString("en-US", {
