@@ -4,6 +4,7 @@ import { promises as fs } from "fs";
 import { readFileSync } from "fs";
 import path from "path";
 
+export const BASEDIR = path.join(process.cwd(), "contents");
 // this should be changed based on your frontmatter that you would like to use
 type FrontMatterType = {
   title: string;
@@ -15,15 +16,14 @@ type FrontMatterType = {
 export const cn = (...values: ClassValue[]) => {
   return twMerge(clsx(values));
 };
-export const BADEDIR = path.join(process.cwd(), "contents");
 
 export const allBlogs = async () => {
-  const file = await fs.readdir(BADEDIR);
+  const file = await fs.readdir(BASEDIR);
 
   return file;
 };
 export const postContent = async (filename: string) => {
-  const pathes = path.join(BADEDIR , `${filename}.md`);
+  const pathes = path.join(BASEDIR , `${filename}.md`);
 
   const fileContent = await fs.readFile(pathes, "utf-8");
 
@@ -55,7 +55,7 @@ export const mdToHtml = (content: string) => {
 
 }
 export const getData =  (slug: string) => {
-  const filePath = path.join(BADEDIR, `${slug}.md`);
+  const filePath = path.join(BASEDIR, `${slug}.md`);
   const fileContent = readFileSync(filePath);
   return fileContent;
 };

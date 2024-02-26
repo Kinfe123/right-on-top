@@ -1,4 +1,4 @@
-import { formatDate, frontMatter, postContent } from "@/lib/utils";
+import { formatDate, frontMatter } from "@/lib/utils";
 import Link from "next/link";
 
 const PostCard = async ({ file, content }: { file: string, content: Promise<string> }) => {
