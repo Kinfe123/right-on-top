@@ -9,7 +9,7 @@ This is a very pure and dep pruned blog app with every core functionality that y
 
 
 ```bash
-git clone https://github.com/Kinfe123/right-on-top-contentful
+git clone https://github.com/Kinfe123/right-on-top
 # or
 cd right-on-top-contentfu
 # or
