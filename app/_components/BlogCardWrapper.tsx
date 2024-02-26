@@ -21,7 +21,7 @@ const BlogCardWrapper = async () => {
             {file.map((f) => {
                 return (               // this might cause an error due to Random assignment of keys
                     <Suspense key={Math.random()} fallback={<LoadingComp />}>
-                        <PostCard key={Math.random()} file={f} content={postContent(f.split('.')[0])} />
+                        <PostCard key={f} file={f} content={postContent(f.split('.')[0])} />
                     </Suspense>
                 )
             })}
