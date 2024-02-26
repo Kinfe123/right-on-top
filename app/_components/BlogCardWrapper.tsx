@@ -1,8 +1,8 @@
-import { allPosts, postContent } from "@/lib/utils"
+import { allBlogs, postContent } from "@/lib/utils"
 import PostCard from "./PostCard"
 import { Suspense } from "react"
-const FileComp = async () => {
-    const file = await allPosts()
+const BlogCardWrapper = async () => {
+    const file = await allBlogs()
 
 
     // for testing the streams using suspense 
@@ -31,7 +31,7 @@ const FileComp = async () => {
 
 
 
-export default FileComp
+export default BlogCardWrapper
 
 const LoadingComp = () => {
     return (

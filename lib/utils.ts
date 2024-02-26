@@ -15,17 +15,15 @@ type FrontMatterType = {
 export const cn = (...values: ClassValue[]) => {
   return twMerge(clsx(values));
 };
-export const BASEPATH = path.join(process.cwd(), "contents");
+export const BADEDIR = path.join(process.cwd(), "contents");
 
-export const allPosts = async () => {
-  // const pathes = path.join("contents");
-
-  const file = await fs.readdir(BASEPATH);
+export const allBlogs = async () => {
+  const file = await fs.readdir(BADEDIR);
 
   return file;
 };
 export const postContent = async (filename: string) => {
-  const pathes = path.join(BASEPATH , `${filename}.md`);
+  const pathes = path.join(BADEDIR , `${filename}.md`);
 
   const fileContent = await fs.readFile(pathes, "utf-8");
 
@@ -57,7 +55,7 @@ export const mdToHtml = (content: string) => {
 
 }
 export const getData =  (slug: string) => {
-  const filePath = path.join(BASEPATH, `${slug}.md`);
+  const filePath = path.join(BADEDIR, `${slug}.md`);
   const fileContent = readFileSync(filePath);
   return fileContent;
 };

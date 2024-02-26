@@ -1,6 +1,7 @@
-import FileComp from "./_components/FIleComp";
+
 import { Suspense } from "react";
 import Blogs from "./_components/Blogs";
+import BlogCardWrapper from "./_components/BlogCardWrapper";
 
 
 export default async function Home() {
@@ -22,7 +23,7 @@ export default async function Home() {
        </Suspense>
        
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-       <FileComp />
+       <BlogCardWrapper />
       </div>
     </main>
   );

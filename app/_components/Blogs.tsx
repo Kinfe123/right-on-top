@@ -1,7 +1,7 @@
-import { allPosts } from "@/lib/utils"
+import { allBlogs } from "@/lib/utils"
 
 const Blogs = async () => {
-    const lenght = await allPosts()
+    const lenght = await allBlogs()
 
     return (
         <div>
