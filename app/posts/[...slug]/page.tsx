@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PostParams) {
 const PostPage = async ({ params }: PostParams) => {
   const slug = params.slug[0];
 
-  const data =  getData(slug);
+  const data = getData(slug);
   const fileContent = data.toString();
   // the code below causes an error on vercel serverless while resolving the path
   // const fileContent = await postContent(slug)

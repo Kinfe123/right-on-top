@@ -22,17 +22,16 @@ export const allBlogs = async () => {
 
   return file;
 };
-//  generating the content based on slug - fetching the markup 
+//  generating the content based on slug - fetching the markup
 export const postContent = async (filename: string) => {
-  const pathes = path.join(BASEDIR , `${filename}.md`);
+  const pathes = path.join(BASEDIR, `${filename}.md`);
 
   const fileContent = await fs.readFile(pathes, "utf-8");
 
   return fileContent;
 };
 
-
-// generating the frontmatter 
+// generating the frontmatter
 export const frontMatter = (fileContent: string) => {
   const startFrontmatter = fileContent.indexOf("---");
   const endFrontmatter = fileContent.slice(startFrontmatter + 3).indexOf("---");
@@ -52,25 +51,22 @@ export const frontMatter = (fileContent: string) => {
   return result as FrontMatterType;
 };
 
-
 export const mdToHtml = (content: string) => {
   // TODO: to replace marked package
-
-}
-// get the sync buffer 
-export const getData =  (slug: string) => {
+};
+// get the sync buffer
+export const getData = (slug: string) => {
   const filePath = path.join(BASEDIR, `${slug}.md`);
   const fileContent = readFileSync(filePath);
   return fileContent;
 };
-// generting the content . except the frontmatter 
+// generting the content . except the frontmatter
 export const contentAfterFrontMatter = (fileContent: string) => {
   const startFrontmatter = fileContent.indexOf("---");
   const endFrontmatter = fileContent.slice(startFrontmatter + 3).indexOf("---");
   const realContent = fileContent.slice(endFrontmatter + 6); // because pf --- will be skippd twice due to not including the offset
   return realContent;
 };
-
 
 // formating date based on the US standard
 export function formatDate(input: undefined | Date): string {

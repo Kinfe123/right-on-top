@@ -5,7 +5,7 @@ const Blogs = async () => {
 
     return (
         <div>
-           We have {lenght.length} blog{`lenght > 1` ? 's': ''} by far
+            We have {lenght.length} blog{`lenght > 1` ? 's' : ''} by far
         </div>
     )
 }
